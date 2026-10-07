@@ -1,1182 +1,1166 @@
 
-<!--<!DOCTYPE html>-->
-<!--<html lang="pt-BR">-->
-<!--<head>-->
-<!--    <meta charset="UTF-8">-->
-<!--    <meta name="viewport" content="width=device-width, initial-scale=1.0">-->
-
-<!--    <title>Emanuel Brena | Back-End Python</title>-->
-<!--    <meta name="description" content="Portfólio de Emanuel Brena, desenvolvedor Back-End Python em formação. Projetos com Python, FastAPI, PostgreSQL, SQLAlchemy e automações.">-->
-
-<!--    <style>-->
-<!--        :root {-->
-<!--            &#45;&#45;bg: #07111f;-->
-<!--            &#45;&#45;bg-soft: #0b1728;-->
-<!--            &#45;&#45;card: rgba(14, 28, 48, 0.78);-->
-<!--            &#45;&#45;border: rgba(148, 163, 184, 0.16);-->
-<!--            &#45;&#45;text: #f8fafc;-->
-<!--            &#45;&#45;muted: #9fb0c5;-->
-<!--            &#45;&#45;accent: #63e6be;-->
-<!--            &#45;&#45;accent-2: #4dabf7;-->
-<!--            &#45;&#45;white: #ffffff;-->
-<!--            &#45;&#45;danger: #ff6b6b;-->
-<!--            &#45;&#45;shadow: 0 24px 60px rgba(0, 0, 0, 0.28);-->
-<!--            &#45;&#45;radius: 22px;-->
-<!--            &#45;&#45;max: 1120px;-->
-<!--        }-->
-
-<!--        * {-->
-<!--            box-sizing: border-box;-->
-<!--            margin: 0;-->
-<!--            padding: 0;-->
-<!--        }-->
-
-<!--        html {-->
-<!--            scroll-behavior: smooth;-->
-<!--        }-->
-
-<!--        body {-->
-<!--            font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;-->
-<!--            background:-->
-<!--                radial-gradient(circle at 12% 10%, rgba(77, 171, 247, 0.12), transparent 28%),-->
-<!--                radial-gradient(circle at 85% 8%, rgba(99, 230, 190, 0.08), transparent 24%),-->
-<!--                var(&#45;&#45;bg);-->
-<!--            color: var(&#45;&#45;text);-->
-<!--            line-height: 1.6;-->
-<!--        }-->
-
-<!--        a {-->
-<!--            color: inherit;-->
-<!--            text-decoration: none;-->
-<!--        }-->
-
-<!--        button {-->
-<!--            font: inherit;-->
-<!--        }-->
-
-<!--        .container {-->
-<!--            width: min(var(&#45;&#45;max), calc(100% - 40px));-->
-<!--            margin: 0 auto;-->
-<!--        }-->
-
-<!--        /* NAVBAR */-->
-<!--        .nav {-->
-<!--            position: sticky;-->
-<!--            top: 0;-->
-<!--            z-index: 50;-->
-<!--            backdrop-filter: blur(16px);-->
-<!--            background: rgba(7, 17, 31, 0.74);-->
-<!--            border-bottom: 1px solid rgba(148, 163, 184, 0.08);-->
-<!--        }-->
-
-<!--        .nav-inner {-->
-<!--            min-height: 76px;-->
-<!--            display: flex;-->
-<!--            align-items: center;-->
-<!--            justify-content: space-between;-->
-<!--            gap: 24px;-->
-<!--        }-->
-
-<!--        .brand {-->
-<!--            font-weight: 800;-->
-<!--            letter-spacing: -0.03em;-->
-<!--            font-size: 1.05rem;-->
-<!--        }-->
-
-<!--        .brand span {-->
-<!--            color: var(&#45;&#45;accent);-->
-<!--        }-->
-
-<!--        .nav-links {-->
-<!--            display: flex;-->
-<!--            gap: 24px;-->
-<!--            align-items: center;-->
-<!--            color: var(&#45;&#45;muted);-->
-<!--            font-size: 0.94rem;-->
-<!--        }-->
-
-<!--        .nav-links a {-->
-<!--            transition: color .2s ease;-->
-<!--        }-->
-
-<!--        .nav-links a:hover {-->
-<!--            color: var(&#45;&#45;white);-->
-<!--        }-->
-
-<!--        /* HERO */-->
-<!--        .hero {-->
-<!--            min-height: calc(100vh - 76px);-->
-<!--            display: grid;-->
-<!--            place-items: center;-->
-<!--            padding: 96px 0 72px;-->
-<!--        }-->
-
-<!--        .hero-grid {-->
-<!--            display: grid;-->
-<!--            grid-template-columns: 1.25fr .75fr;-->
-<!--            gap: 56px;-->
-<!--            align-items: center;-->
-<!--        }-->
-
-<!--        .eyebrow {-->
-<!--            display: inline-flex;-->
-<!--            align-items: center;-->
-<!--            gap: 9px;-->
-<!--            padding: 8px 12px;-->
-<!--            border: 1px solid rgba(99, 230, 190, 0.22);-->
-<!--            border-radius: 999px;-->
-<!--            color: var(&#45;&#45;accent);-->
-<!--            background: rgba(99, 230, 190, 0.06);-->
-<!--            font-size: 0.84rem;-->
-<!--            margin-bottom: 22px;-->
-<!--        }-->
-
-<!--        .eyebrow .dot {-->
-<!--            width: 8px;-->
-<!--            height: 8px;-->
-<!--            border-radius: 50%;-->
-<!--            background: var(&#45;&#45;accent);-->
-<!--            box-shadow: 0 0 18px rgba(99, 230, 190, 0.8);-->
-<!--        }-->
-
-<!--        .hero h1 {-->
-<!--            max-width: 760px;-->
-<!--            font-size: clamp(3rem, 7vw, 5.8rem);-->
-<!--            line-height: .98;-->
-<!--            letter-spacing: -0.065em;-->
-<!--            margin-bottom: 24px;-->
-<!--        }-->
-
-<!--        .hero h1 .accent {-->
-<!--            color: var(&#45;&#45;accent);-->
-<!--        }-->
-
-<!--        .hero p {-->
-<!--            max-width: 680px;-->
-<!--            color: var(&#45;&#45;muted);-->
-<!--            font-size: 1.12rem;-->
-<!--            line-height: 1.8;-->
-<!--            margin-bottom: 30px;-->
-<!--        }-->
-
-<!--        .hero-actions {-->
-<!--            display: flex;-->
-<!--            flex-wrap: wrap;-->
-<!--            gap: 14px;-->
-<!--        }-->
-
-<!--        .btn {-->
-<!--            display: inline-flex;-->
-<!--            align-items: center;-->
-<!--            justify-content: center;-->
-<!--            gap: 10px;-->
-<!--            padding: 13px 18px;-->
-<!--            border-radius: 13px;-->
-<!--            border: 1px solid var(&#45;&#45;border);-->
-<!--            font-weight: 700;-->
-<!--            transition: transform .2s ease, border-color .2s ease, background .2s ease;-->
-<!--        }-->
-
-<!--        .btn:hover {-->
-<!--            transform: translateY(-2px);-->
-<!--        }-->
-
-<!--        .btn-primary {-->
-<!--            background: var(&#45;&#45;accent);-->
-<!--            color: #062019;-->
-<!--            border-color: var(&#45;&#45;accent);-->
-<!--        }-->
-
-<!--        .btn-secondary {-->
-<!--            background: rgba(255,255,255,.03);-->
-<!--            color: var(&#45;&#45;white);-->
-<!--        }-->
-
-<!--        .btn-secondary:hover {-->
-<!--            border-color: rgba(99,230,190,.35);-->
-<!--            background: rgba(99,230,190,.05);-->
-<!--        }-->
-
-<!--        .hero-panel {-->
-<!--            position: relative;-->
-<!--            min-height: 370px;-->
-<!--            border: 1px solid var(&#45;&#45;border);-->
-<!--            border-radius: 30px;-->
-<!--            background: linear-gradient(145deg, rgba(18, 37, 62, .9), rgba(8, 20, 35, .75));-->
-<!--            box-shadow: var(&#45;&#45;shadow);-->
-<!--            overflow: hidden;-->
-<!--        }-->
-
-<!--        .hero-panel::before,-->
-<!--        .hero-panel::after {-->
-<!--            content: "";-->
-<!--            position: absolute;-->
-<!--            border-radius: 50%;-->
-<!--            filter: blur(8px);-->
-<!--        }-->
-
-<!--        .hero-panel::before {-->
-<!--            width: 220px;-->
-<!--            height: 220px;-->
-<!--            background: rgba(77,171,247,.18);-->
-<!--            top: -70px;-->
-<!--            right: -60px;-->
-<!--        }-->
-
-<!--        .hero-panel::after {-->
-<!--            width: 180px;-->
-<!--            height: 180px;-->
-<!--            background: rgba(99,230,190,.12);-->
-<!--            bottom: -60px;-->
-<!--            left: -50px;-->
-<!--        }-->
-
-<!--        .terminal {-->
-<!--            position: absolute;-->
-<!--            inset: 34px;-->
-<!--            border: 1px solid rgba(148,163,184,.14);-->
-<!--            border-radius: 18px;-->
-<!--            background: rgba(4, 11, 20, .82);-->
-<!--            padding: 22px;-->
-<!--            font-family: "Cascadia Code", "SFMono-Regular", Consolas, monospace;-->
-<!--            color: #cfe6ff;-->
-<!--            box-shadow: inset 0 1px 0 rgba(255,255,255,.03);-->
-<!--        }-->
-
-<!--        .terminal-top {-->
-<!--            display: flex;-->
-<!--            gap: 7px;-->
-<!--            margin-bottom: 20px;-->
-<!--        }-->
-
-<!--        .terminal-top span {-->
-<!--            width: 10px;-->
-<!--            height: 10px;-->
-<!--            border-radius: 50%;-->
-<!--            background: #334155;-->
-<!--        }-->
-
-<!--        .terminal-line {-->
-<!--            margin: 11px 0;-->
-<!--            font-size: .92rem;-->
-<!--        }-->
-
-<!--        .terminal-key {-->
-<!--            color: #70e1b7;-->
-<!--        }-->
-
-<!--        .terminal-fn {-->
-<!--            color: #74b9ff;-->
-<!--        }-->
-
-<!--        .terminal-muted {-->
-<!--            color: #64748b;-->
-<!--        }-->
-
-<!--        /* SECTION */-->
-<!--        section {-->
-<!--            padding: 110px 0;-->
-<!--        }-->
-
-<!--        .section-head {-->
-<!--            margin-bottom: 42px;-->
-<!--        }-->
-
-<!--        .section-label {-->
-<!--            color: var(&#45;&#45;accent);-->
-<!--            font-size: .84rem;-->
-<!--            text-transform: uppercase;-->
-<!--            letter-spacing: .16em;-->
-<!--            font-weight: 800;-->
-<!--            margin-bottom: 10px;-->
-<!--        }-->
-
-<!--        .section-head h2 {-->
-<!--            font-size: clamp(2rem, 4vw, 3.2rem);-->
-<!--            letter-spacing: -0.05em;-->
-<!--            margin-bottom: 12px;-->
-<!--        }-->
-
-<!--        .section-head p {-->
-<!--            color: var(&#45;&#45;muted);-->
-<!--            max-width: 720px;-->
-<!--        }-->
-
-<!--        /* ABOUT */-->
-<!--        .about-grid {-->
-<!--            display: grid;-->
-<!--            grid-template-columns: 1fr 1fr;-->
-<!--            gap: 22px;-->
-<!--        }-->
-
-<!--        .glass-card {-->
-<!--            background: var(&#45;&#45;card);-->
-<!--            border: 1px solid var(&#45;&#45;border);-->
-<!--            border-radius: var(&#45;&#45;radius);-->
-<!--            box-shadow: var(&#45;&#45;shadow);-->
-<!--        }-->
-
-<!--        .about-card {-->
-<!--            padding: 30px;-->
-<!--        }-->
-
-<!--        .about-card h3 {-->
-<!--            font-size: 1.2rem;-->
-<!--            margin-bottom: 14px;-->
-<!--        }-->
-
-<!--        .about-card p {-->
-<!--            color: var(&#45;&#45;muted);-->
-<!--            line-height: 1.85;-->
-<!--        }-->
-
-<!--        .facts {-->
-<!--            display: grid;-->
-<!--            grid-template-columns: 1fr 1fr;-->
-<!--            gap: 14px;-->
-<!--            margin-top: 22px;-->
-<!--        }-->
-
-<!--        .fact {-->
-<!--            padding: 18px;-->
-<!--            border-radius: 16px;-->
-<!--            background: rgba(255,255,255,.025);-->
-<!--            border: 1px solid rgba(148,163,184,.09);-->
-<!--        }-->
-
-<!--        .fact strong {-->
-<!--            display: block;-->
-<!--            font-size: 1.15rem;-->
-<!--            margin-bottom: 4px;-->
-<!--        }-->
-
-<!--        .fact span {-->
-<!--            color: var(&#45;&#45;muted);-->
-<!--            font-size: .9rem;-->
-<!--        }-->
-
-<!--        /* STACK */-->
-<!--        .stack {-->
-<!--            display: grid;-->
-<!--            grid-template-columns: repeat(3, 1fr);-->
-<!--            gap: 16px;-->
-<!--        }-->
-
-<!--        .stack-item {-->
-<!--            padding: 22px;-->
-<!--            min-height: 140px;-->
-<!--        }-->
-
-<!--        .stack-item h3 {-->
-<!--            margin-bottom: 8px;-->
-<!--            font-size: 1rem;-->
-<!--        }-->
-
-<!--        .stack-item p {-->
-<!--            color: var(&#45;&#45;muted);-->
-<!--            font-size: .92rem;-->
-<!--        }-->
-
-<!--        .chip-row {-->
-<!--            display: flex;-->
-<!--            flex-wrap: wrap;-->
-<!--            gap: 8px;-->
-<!--            margin-top: 14px;-->
-<!--        }-->
-
-<!--        .chip {-->
-<!--            font-size: .78rem;-->
-<!--            padding: 6px 9px;-->
-<!--            border-radius: 999px;-->
-<!--            background: rgba(99,230,190,.07);-->
-<!--            color: #b6f7df;-->
-<!--            border: 1px solid rgba(99,230,190,.14);-->
-<!--        }-->
-
-<!--        /* PROJECTS */-->
-<!--        .projects {-->
-<!--            display: grid;-->
-<!--            grid-template-columns: repeat(3, 1fr);-->
-<!--            gap: 18px;-->
-<!--        }-->
-
-<!--        .project {-->
-<!--            padding: 26px;-->
-<!--            display: flex;-->
-<!--            flex-direction: column;-->
-<!--            min-height: 390px;-->
-<!--        }-->
-
-<!--        .project-top {-->
-<!--            display: flex;-->
-<!--            align-items: center;-->
-<!--            justify-content: space-between;-->
-<!--            gap: 14px;-->
-<!--            margin-bottom: 20px;-->
-<!--        }-->
-
-<!--        .project-icon {-->
-<!--            width: 48px;-->
-<!--            height: 48px;-->
-<!--            display: grid;-->
-<!--            place-items: center;-->
-<!--            border-radius: 14px;-->
-<!--            background: rgba(99,230,190,.08);-->
-<!--            border: 1px solid rgba(99,230,190,.14);-->
-<!--            font-size: 1.35rem;-->
-<!--        }-->
-
-<!--        .project-status {-->
-<!--            font-size: .75rem;-->
-<!--            font-weight: 800;-->
-<!--            color: var(&#45;&#45;accent);-->
-<!--        }-->
-
-<!--        .project h3 {-->
-<!--            font-size: 1.42rem;-->
-<!--            margin-bottom: 10px;-->
-<!--        }-->
-
-<!--        .project p {-->
-<!--            color: var(&#45;&#45;muted);-->
-<!--            line-height: 1.75;-->
-<!--            margin-bottom: 18px;-->
-<!--        }-->
-
-<!--        .project-list {-->
-<!--            list-style: none;-->
-<!--            display: grid;-->
-<!--            gap: 8px;-->
-<!--            color: #c5d2e3;-->
-<!--            font-size: .9rem;-->
-<!--            margin-bottom: 22px;-->
-<!--        }-->
-
-<!--        .project-list li::before {-->
-<!--            content: "→";-->
-<!--            color: var(&#45;&#45;accent);-->
-<!--            margin-right: 8px;-->
-<!--        }-->
-
-<!--        .project-footer {-->
-<!--            margin-top: auto;-->
-<!--            display: flex;-->
-<!--            gap: 10px;-->
-<!--        }-->
-
-<!--        .project-link {-->
-<!--            display: inline-flex;-->
-<!--            align-items: center;-->
-<!--            justify-content: center;-->
-<!--            padding: 10px 12px;-->
-<!--            border-radius: 11px;-->
-<!--            border: 1px solid var(&#45;&#45;border);-->
-<!--            background: rgba(255,255,255,.025);-->
-<!--            font-size: .86rem;-->
-<!--            font-weight: 700;-->
-<!--        }-->
-
-<!--        .project-link:hover {-->
-<!--            border-color: rgba(99,230,190,.3);-->
-<!--        }-->
-
-<!--        /* JOURNEY */-->
-<!--        .journey {-->
-<!--            display: grid;-->
-<!--            gap: 16px;-->
-<!--            max-width: 900px;-->
-<!--        }-->
-
-<!--        .journey-item {-->
-<!--            display: grid;-->
-<!--            grid-template-columns: 18px 1fr;-->
-<!--            gap: 20px;-->
-<!--            align-items: start;-->
-<!--        }-->
-
-<!--        .journey-dot {-->
-<!--            width: 12px;-->
-<!--            height: 12px;-->
-<!--            margin-top: 8px;-->
-<!--            border-radius: 50%;-->
-<!--            background: var(&#45;&#45;accent);-->
-<!--            box-shadow: 0 0 18px rgba(99,230,190,.5);-->
-<!--        }-->
-
-<!--        .journey-card {-->
-<!--            padding: 22px 24px;-->
-<!--        }-->
-
-<!--        .journey-card h3 {-->
-<!--            margin-bottom: 5px;-->
-<!--        }-->
-
-<!--        .journey-card span {-->
-<!--            color: var(&#45;&#45;accent);-->
-<!--            font-size: .85rem;-->
-<!--            font-weight: 700;-->
-<!--        }-->
-
-<!--        .journey-card p {-->
-<!--            color: var(&#45;&#45;muted);-->
-<!--            margin-top: 10px;-->
-<!--        }-->
-
-<!--        /* CTA */-->
-<!--        .cta {-->
-<!--            padding-bottom: 120px;-->
-<!--        }-->
-
-<!--        .cta-card {-->
-<!--            padding: 48px;-->
-<!--            text-align: center;-->
-<!--            background:-->
-<!--                radial-gradient(circle at 15% 30%, rgba(77,171,247,.12), transparent 25%),-->
-<!--                radial-gradient(circle at 85% 70%, rgba(99,230,190,.1), transparent 26%),-->
-<!--                rgba(13, 28, 47, .82);-->
-<!--        }-->
-
-<!--        .cta-card h2 {-->
-<!--            font-size: clamp(2rem, 5vw, 3.6rem);-->
-<!--            letter-spacing: -0.055em;-->
-<!--            margin-bottom: 12px;-->
-<!--        }-->
-
-<!--        .cta-card p {-->
-<!--            color: var(&#45;&#45;muted);-->
-<!--            max-width: 680px;-->
-<!--            margin: 0 auto 26px;-->
-<!--        }-->
-
-<!--        .cta-actions {-->
-<!--            display: flex;-->
-<!--            justify-content: center;-->
-<!--            flex-wrap: wrap;-->
-<!--            gap: 12px;-->
-<!--        }-->
-
-<!--        /* FOOTER */-->
-<!--        footer {-->
-<!--            padding: 26px 0 36px;-->
-<!--            border-top: 1px solid rgba(148,163,184,.08);-->
-<!--            color: var(&#45;&#45;muted);-->
-<!--        }-->
-
-<!--        .footer-inner {-->
-<!--            display: flex;-->
-<!--            justify-content: space-between;-->
-<!--            gap: 20px;-->
-<!--            align-items: center;-->
-<!--        }-->
-
-<!--        .footer-links {-->
-<!--            display: flex;-->
-<!--            gap: 14px;-->
-<!--        }-->
-
-<!--        .footer-links a:hover {-->
-<!--            color: var(&#45;&#45;white);-->
-<!--        }-->
-
-<!--        /* RESPONSIVE */-->
-<!--        @media (max-width: 900px) {-->
-<!--            .hero-grid,-->
-<!--            .about-grid {-->
-<!--                grid-template-columns: 1fr;-->
-<!--            }-->
-
-<!--            .hero {-->
-<!--                padding-top: 72px;-->
-<!--            }-->
-
-<!--            .stack,-->
-<!--            .projects {-->
-<!--                grid-template-columns: 1fr 1fr;-->
-<!--            }-->
-
-<!--            .hero-panel {-->
-<!--                min-height: 320px;-->
-<!--            }-->
-<!--        }-->
-
-<!--        @media (max-width: 640px) {-->
-<!--            .container {-->
-<!--                width: min(var(&#45;&#45;max), calc(100% - 24px));-->
-<!--            }-->
-
-<!--            .nav-links {-->
-<!--                display: none;-->
-<!--            }-->
-
-<!--            section {-->
-<!--                padding: 80px 0;-->
-<!--            }-->
-
-<!--            .hero {-->
-<!--                min-height: auto;-->
-<!--                padding: 72px 0 40px;-->
-<!--            }-->
-
-<!--            .hero h1 {-->
-<!--                font-size: 3.3rem;-->
-<!--            }-->
-
-<!--            .hero p {-->
-<!--                font-size: 1rem;-->
-<!--            }-->
-
-<!--            .stack,-->
-<!--            .projects,-->
-<!--            .facts {-->
-<!--                grid-template-columns: 1fr;-->
-<!--            }-->
-
-<!--            .terminal {-->
-<!--                inset: 20px;-->
-<!--                padding: 18px;-->
-<!--            }-->
-
-<!--            .terminal-line {-->
-<!--                font-size: .78rem;-->
-<!--            }-->
-
-<!--            .cta-card {-->
-<!--                padding: 32px 20px;-->
-<!--            }-->
-
-<!--            .footer-inner {-->
-<!--                flex-direction: column;-->
-<!--                align-items: flex-start;-->
-<!--            }-->
-<!--        }-->
-<!--    </style>-->
-<!--</head>-->
-
-<!--<body>-->
-
-<!--    <nav class="nav">-->
-<!--        <div class="container nav-inner">-->
-<!--            <a href="#inicio" class="brand">Emanuel<span>.</span></a>-->
-
-<!--            <div class="nav-links">-->
-<!--                <a href="#sobre">Sobre</a>-->
-<!--                <a href="#stack">Stack</a>-->
-<!--                <a href="#projetos">Projetos</a>-->
-<!--                <a href="#jornada">Jornada</a>-->
-<!--                <a href="#contato">Contato</a>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--    </nav>-->
-
-<!--    <main>-->
-
-<!--        &lt;!&ndash; HERO &ndash;&gt;-->
-<!--        <section class="hero" id="inicio">-->
-<!--            <div class="container hero-grid">-->
-
-<!--                <div>-->
-<!--                    <div class="eyebrow">-->
-<!--                        <span class="dot"></span>-->
-<!--                        Em formação para Back-End Python-->
-<!--                    </div>-->
-
-<!--                    <h1>-->
-<!--                        Transformando ideias em-->
-<!--                        <span class="accent">soluções.</span>-->
-<!--                    </h1>-->
-
-<!--                    <p>-->
-<!--                        Sou Emanuel Brena, estudante de Análise e Desenvolvimento de Sistemas-->
-<!--                        e desenvolvedor Back-End Python em formação. Estou construindo minha-->
-<!--                        base através de projetos práticos com APIs, bancos de dados,-->
-<!--                        automações e desenvolvimento de aplicações.-->
-<!--                    </p>-->
-
-<!--                    <div class="hero-actions">-->
-<!--                        <a class="btn btn-primary" href="#projetos">-->
-<!--                            Ver projetos-->
-<!--                        </a>-->
-
-<!--                        <a class="btn btn-secondary"-->
-<!--                           href="https://github.com/EmanuelBrena"-->
-<!--                           target="_blank"-->
-<!--                           rel="noopener noreferrer">-->
-<!--                            GitHub ↗-->
-<!--                        </a>-->
-
-<!--                        <a class="btn btn-secondary"-->
-<!--                           href="https://www.linkedin.com/in/emanuel-brena-17906b293/"-->
-<!--                           target="_blank"-->
-<!--                           rel="noopener noreferrer">-->
-<!--                            LinkedIn ↗-->
-<!--                        </a>-->
-<!--                    </div>-->
-<!--                </div>-->
-
-<!--                <div class="hero-panel">-->
-<!--                    <div class="terminal">-->
-<!--                        <div class="terminal-top">-->
-<!--                            <span></span>-->
-<!--                            <span></span>-->
-<!--                            <span></span>-->
-<!--                        </div>-->
-
-<!--                        <div class="terminal-line">-->
-<!--                            <span class="terminal-muted">$</span>-->
-<!--                            <span class="terminal-key">python</span>-->
-<!--                            portfolio.py-->
-<!--                        </div>-->
-
-<!--                        <div class="terminal-line">-->
-<!--                            <span class="terminal-fn">stack</span> = [-->
-<!--                        </div>-->
-
-<!--                        <div class="terminal-line">-->
-<!--                            &nbsp;&nbsp;<span class="terminal-key">"Python"</span>,-->
-<!--                        </div>-->
-
-<!--                        <div class="terminal-line">-->
-<!--                            &nbsp;&nbsp;<span class="terminal-key">"FastAPI"</span>,-->
-<!--                        </div>-->
-
-<!--                        <div class="terminal-line">-->
-<!--                            &nbsp;&nbsp;<span class="terminal-key">"PostgreSQL"</span>,-->
-<!--                        </div>-->
-
-<!--                        <div class="terminal-line">-->
-<!--                            &nbsp;&nbsp;<span class="terminal-key">"SQLAlchemy"</span>-->
-<!--                        </div>-->
-
-<!--                        <div class="terminal-line">-->
-<!--                            ]-->
-<!--                        </div>-->
-
-<!--                        <div class="terminal-line">-->
-<!--                            <span class="terminal-muted">status:</span>-->
-<!--                            <span class="terminal-key">"building"</span>-->
-<!--                        </div>-->
-
-<!--                        <div class="terminal-line">-->
-<!--                            <span class="terminal-muted">focus:</span>-->
-<!--                            <span class="terminal-fn">"backend"</span>-->
-<!--                        </div>-->
-
-<!--                        <div class="terminal-line">-->
-<!--                            <span class="terminal-muted">next:</span>-->
-<!--                            <span class="terminal-fn">"keep learning"</span>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                </div>-->
-
-<!--            </div>-->
-<!--        </section>-->
-
-<!--        &lt;!&ndash; SOBRE &ndash;&gt;-->
-<!--        <section id="sobre">-->
-<!--            <div class="container">-->
-
-<!--                <div class="section-head">-->
-<!--                    <div class="section-label">Sobre mim</div>-->
-<!--                    <h2>Uma transição construída na prática.</h2>-->
-<!--                    <p>-->
-<!--                        Minha trajetória profissional começou no tráfego pago,-->
-<!--                        trabalhando com dados, análise e automações. Hoje uso essa-->
-<!--                        experiência como base para minha transição para desenvolvimento.-->
-<!--                    </p>-->
-<!--                </div>-->
-
-<!--                <div class="about-grid">-->
-
-<!--                    <article class="glass-card about-card">-->
-<!--                        <h3>Foco atual</h3>-->
-<!--                        <p>-->
-<!--                            Meu foco está em desenvolvimento Back-End com Python.-->
-<!--                            Estou estudando e praticando construção de APIs REST,-->
-<!--                            bancos de dados relacionais, ORM, autenticação e integração-->
-<!--                            entre diferentes partes de uma aplicação.-->
-<!--                        </p>-->
-
-<!--                        <div class="facts">-->
-<!--                            <div class="fact">-->
-<!--                                <strong>Python</strong>-->
-<!--                                <span>Linguagem principal</span>-->
-<!--                            </div>-->
-
-<!--                            <div class="fact">-->
-<!--                                <strong>Back-End</strong>-->
-<!--                                <span>Área de especialização</span>-->
-<!--                            </div>-->
-
-<!--                            <div class="fact">-->
-<!--                                <strong>ADS</strong>-->
-<!--                                <span>Graduação em andamento</span>-->
-<!--                            </div>-->
-
-<!--                            <div class="fact">-->
-<!--                                <strong>Projetos</strong>-->
-<!--                                <span>Aprendizado na prática</span>-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                    </article>-->
-
-<!--                    <article class="glass-card about-card">-->
-<!--                        <h3>Como eu aprendo</h3>-->
-<!--                        <p>-->
-<!--                            Meu foco é construir, testar, errar, corrigir e entender.-->
-<!--                            Cada projeto é usado para transformar teoria em prática,-->
-<!--                            fortalecendo minha base de programação e minha capacidade-->
-<!--                            de resolver problemas no Back-End.-->
-<!--                        </p>-->
-
-<!--                        <div class="chip-row">-->
-<!--                            <span class="chip">APIs REST</span>-->
-<!--                            <span class="chip">CRUD</span>-->
-<!--                            <span class="chip">SQL</span>-->
-<!--                            <span class="chip">ORM</span>-->
-<!--                            <span class="chip">Automação</span>-->
-<!--                            <span class="chip">Git / GitHub</span>-->
-<!--                        </div>-->
-<!--                    </article>-->
-
-<!--                </div>-->
-<!--            </div>-->
-<!--        </section>-->
-
-<!--        &lt;!&ndash; STACK &ndash;&gt;-->
-<!--        <section id="stack">-->
-<!--            <div class="container">-->
-
-<!--                <div class="section-head">-->
-<!--                    <div class="section-label">Tecnologias</div>-->
-<!--                    <h2>Stack que estou desenvolvendo.</h2>-->
-<!--                    <p>-->
-<!--                        Tecnologias que já utilizei em projetos ou que fazem parte-->
-<!--                        do meu processo atual de aprendizado.-->
-<!--                    </p>-->
-<!--                </div>-->
-
-<!--                <div class="stack">-->
-
-<!--                    <article class="glass-card stack-item">-->
-<!--                        <h3>Python</h3>-->
-<!--                        <p>-->
-<!--                            Base da minha formação, usada em projetos, automações,-->
-<!--                            APIs e ferramentas.-->
-<!--                        </p>-->
-<!--                        <div class="chip-row">-->
-<!--                            <span class="chip">Lógica</span>-->
-<!--                            <span class="chip">Funções</span>-->
-<!--                            <span class="chip">Automação</span>-->
-<!--                        </div>-->
-<!--                    </article>-->
-
-<!--                    <article class="glass-card stack-item">-->
-<!--                        <h3>FastAPI</h3>-->
-<!--                        <p>-->
-<!--                            Construção de APIs REST, rotas, validação, documentação-->
-<!--                            e autenticação.-->
-<!--                        </p>-->
-<!--                        <div class="chip-row">-->
-<!--                            <span class="chip">REST</span>-->
-<!--                            <span class="chip">Pydantic</span>-->
-<!--                            <span class="chip">Swagger</span>-->
-<!--                        </div>-->
-<!--                    </article>-->
-
-<!--                    <article class="glass-card stack-item">-->
-<!--                        <h3>PostgreSQL</h3>-->
-<!--                        <p>-->
-<!--                            Banco relacional utilizado nos projetos de Back-End-->
-<!--                            para persistência e consultas.-->
-<!--                        </p>-->
-<!--                        <div class="chip-row">-->
-<!--                            <span class="chip">SQL</span>-->
-<!--                            <span class="chip">CRUD</span>-->
-<!--                            <span class="chip">Relacionamentos</span>-->
-<!--                        </div>-->
-<!--                    </article>-->
-
-<!--                    <article class="glass-card stack-item">-->
-<!--                        <h3>SQLAlchemy</h3>-->
-<!--                        <p>-->
-<!--                            ORM utilizado para conectar a aplicação Python ao banco-->
-<!--                            e trabalhar com Models e Sessions.-->
-<!--                        </p>-->
-<!--                        <div class="chip-row">-->
-<!--                            <span class="chip">ORM</span>-->
-<!--                            <span class="chip">Session</span>-->
-<!--                            <span class="chip">Models</span>-->
-<!--                        </div>-->
-<!--                    </article>-->
-
-<!--                    <article class="glass-card stack-item">-->
-<!--                        <h3>Git / GitHub</h3>-->
-<!--                        <p>-->
-<!--                            Versionamento e publicação dos projetos utilizados-->
-<!--                            durante minha evolução.-->
-<!--                        </p>-->
-<!--                        <div class="chip-row">-->
-<!--                            <span class="chip">Git</span>-->
-<!--                            <span class="chip">GitHub</span>-->
-<!--                            <span class="chip">Projetos</span>-->
-<!--                        </div>-->
-<!--                    </article>-->
-
-<!--                </div>-->
-<!--            </div>-->
-<!--        </section>-->
-
-<!--        &lt;!&ndash; PROJETOS &ndash;&gt;-->
-<!--        <section id="projetos">-->
-<!--            <div class="container">-->
-
-<!--                <div class="section-head">-->
-<!--                    <div class="section-label">Projetos</div>-->
-<!--                    <h2>Projetos que mostram minha evolução.</h2>-->
-<!--                    <p>-->
-<!--                        Cada projeto representa uma etapa diferente da minha jornada,-->
-<!--                        desde ferramentas em Python até APIs completas com banco de dados.-->
-<!--                    </p>-->
-<!--                </div>-->
-
-<!--                <div class="projects">-->
-
-<!--                    <article class="glass-card project">-->
-<!--                        <div class="project-top">-->
-<!--                            <div class="project-icon">⚡</div>-->
-<!--                            <div class="project-status">BACK-END</div>-->
-<!--                        </div>-->
-
-<!--                        <h3>TarefasAPI</h3>-->
-
-<!--                        <p>-->
-<!--                            API REST para gerenciamento de tarefas, construída para-->
-<!--                            praticar Back-End, CRUD, banco de dados e integração entre API-->
-<!--                            e Front-End.-->
-<!--                        </p>-->
-
-<!--                        <ul class="project-list">-->
-<!--                            <li>Python + FastAPI</li>-->
-<!--                            <li>PostgreSQL + SQLAlchemy</li>-->
-<!--                            <li>Pydantic e HTTPException</li>-->
-<!--                            <li>CRUD completo de tarefas</li>-->
-<!--                            <li>Front-End integrado à API</li>-->
-<!--                        </ul>-->
-
-<!--                        <div class="chip-row">-->
-<!--                            <span class="chip">Python</span>-->
-<!--                            <span class="chip">FastAPI</span>-->
-<!--                            <span class="chip">PostgreSQL</span>-->
-<!--                            <span class="chip">SQLAlchemy</span>-->
-<!--                        </div>-->
-
-<!--                        <div class="project-footer">-->
-<!--                            <a class="project-link"-->
-<!--                               href="https://github.com/EmanuelBrena/TarefasAPI01"-->
-<!--                               target="_blank"-->
-<!--                               rel="noopener noreferrer">-->
-<!--                                Ver no GitHub ↗-->
-<!--                            </a>-->
-<!--                        </div>-->
-<!--                    </article>-->
-
-<!--                    <article class="glass-card project">-->
-<!--                        <div class="project-top">-->
-<!--                            <div class="project-icon">🔎</div>-->
-<!--                            <div class="project-status">AUTOMAÇÃO</div>-->
-<!--                        </div>-->
-
-<!--                        <h3>VagasPython</h3>-->
-
-<!--                        <p>-->
-<!--                            Bot de busca automática de vagas focado em oportunidades-->
-<!--                            de Python Back-End, criado para facilitar meu próprio-->
-<!--                            processo de busca de oportunidades.-->
-<!--                        </p>-->
-
-<!--                        <ul class="project-list">-->
-<!--                            <li>Busca automática de oportunidades</li>-->
-<!--                            <li>Filtros voltados para Back-End Python</li>-->
-<!--                            <li>Integração com Telegram</li>-->
-<!--                            <li>Automação do processo de busca</li>-->
-<!--                            <li>Projeto publicado no GitHub</li>-->
-<!--                        </ul>-->
-
-<!--                        <div class="chip-row">-->
-<!--                            <span class="chip">Python</span>-->
-<!--                            <span class="chip">Telegram</span>-->
-<!--                            <span class="chip">Automação</span>-->
-<!--                            <span class="chip">GitHub</span>-->
-<!--                        </div>-->
-
-<!--                        <div class="project-footer">-->
-<!--                            <a class="project-link"-->
-<!--                               href="https://github.com/EmanuelBrena/VagasPython"-->
-<!--                               target="_blank"-->
-<!--                               rel="noopener noreferrer">-->
-<!--                                Ver no GitHub ↗-->
-<!--                            </a>-->
-<!--                        </div>-->
-<!--                    </article>-->
-
-<!--                    <article class="glass-card project">-->
-<!--                        <div class="project-top">-->
-<!--                            <div class="project-icon">📊</div>-->
-<!--                            <div class="project-status">PYTHON</div>-->
-<!--                        </div>-->
-
-<!--                        <h3>AdVisionMetrics</h3>-->
-
-<!--                        <p>-->
-<!--                            Ferramenta em Python criada para auxiliar gestores de-->
-<!--                            tráfego na análise de métricas de campanhas de Meta Ads.-->
-<!--                        </p>-->
-
-<!--                        <ul class="project-list">-->
-<!--                            <li>Cálculo de CPL, CPM e CPC</li>-->
-<!--                            <li>Cálculo de CTR e frequência</li>-->
-<!--                            <li>Conversão de Landing Page</li>-->
-<!--                            <li>Diagnóstico automático simples</li>-->
-<!--                            <li>Interface com CustomTkinter</li>-->
-<!--                        </ul>-->
-
-<!--                        <div class="chip-row">-->
-<!--                            <span class="chip">Python</span>-->
-<!--                            <span class="chip">CustomTkinter</span>-->
-<!--                            <span class="chip">Métricas</span>-->
-<!--                        </div>-->
-
-<!--                        <div class="project-footer">-->
-<!--                            <a class="project-link"-->
-<!--                               href="https://github.com/EmanuelBrena/AdVisionMetrics"-->
-<!--                               target="_blank"-->
-<!--                               rel="noopener noreferrer">-->
-<!--                                Ver no GitHub ↗-->
-<!--                            </a>-->
-<!--                        </div>-->
-<!--                    </article>-->
-
-<!--                </div>-->
-<!--            </div>-->
-<!--        </section>-->
-
-<!--        &lt;!&ndash; JORNADA &ndash;&gt;-->
-<!--        <section id="jornada">-->
-<!--            <div class="container">-->
-
-<!--                <div class="section-head">-->
-<!--                    <div class="section-label">Jornada</div>-->
-<!--                    <h2>Onde estou e para onde estou indo.</h2>-->
-<!--                    <p>-->
-<!--                        Minha evolução é construída por etapas, sempre colocando o-->
-<!--                        conhecimento em prática antes de seguir para o próximo desafio.-->
-<!--                    </p>-->
-<!--                </div>-->
-
-<!--                <div class="journey">-->
-
-<!--                    <div class="journey-item">-->
-<!--                        <span class="journey-dot"></span>-->
-<!--                        <article class="glass-card journey-card">-->
-<!--                            <span>BASE</span>-->
-<!--                            <h3>Python e lógica</h3>-->
-<!--                            <p>-->
-<!--                                Construção da base de programação, resolução de problemas,-->
-<!--                                funções, estruturas de dados e manipulação de informações.-->
-<!--                            </p>-->
-<!--                        </article>-->
-<!--                    </div>-->
-
-<!--                    <div class="journey-item">-->
-<!--                        <span class="journey-dot"></span>-->
-<!--                        <article class="glass-card journey-card">-->
-<!--                            <span>DADOS</span>-->
-<!--                            <h3>SQL e PostgreSQL</h3>-->
-<!--                            <p>-->
-<!--                                Criação, consulta, alteração e exclusão de dados,-->
-<!--                                relacionamentos e integração com aplicações Python.-->
-<!--                            </p>-->
-<!--                        </article>-->
-<!--                    </div>-->
-
-<!--                    <div class="journey-item">-->
-<!--                        <span class="journey-dot"></span>-->
-<!--                        <article class="glass-card journey-card">-->
-<!--                            <span>BACK-END</span>-->
-<!--                            <h3>FastAPI e SQLAlchemy</h3>-->
-<!--                            <p>-->
-<!--                                Desenvolvimento de APIs REST, CRUD, Models, Sessions,-->
-<!--                                ORM e comunicação com banco de dados.-->
-<!--                            </p>-->
-<!--                        </article>-->
-<!--                    </div>-->
-
-<!--                    <div class="journey-item">-->
-<!--                        <span class="journey-dot"></span>-->
-<!--                        <article class="glass-card journey-card">-->
-<!--                            <span>ATUAL</span>-->
-<!--                            <h3>Autenticação</h3>-->
-<!--                            <p>-->
-<!--                                Estudo de autenticação, hash de senhas, JWT, Bearer Token-->
-<!--                                e proteção de rotas para fortalecer a base de Back-End.-->
-<!--                            </p>-->
-<!--                        </article>-->
-<!--                    </div>-->
-
-<!--                </div>-->
-
-<!--            </div>-->
-<!--        </section>-->
-
-<!--        &lt;!&ndash; CTA &ndash;&gt;-->
-<!--        <section class="cta" id="contato">-->
-<!--            <div class="container">-->
-<!--                <div class="glass-card cta-card">-->
-
-<!--                    <h2>Vamos conversar?</h2>-->
-
-<!--                    <p>-->
-<!--                        Estou em busca da minha primeira oportunidade na área de-->
-<!--                        desenvolvimento e aberto a conversas sobre estágio,-->
-<!--                        oportunidades júnior e projetos.-->
-<!--                    </p>-->
-
-<!--                    <div class="cta-actions">-->
-<!--                        <a class="btn btn-primary"-->
-<!--                           href="https://www.linkedin.com/in/emanuel-brena-17906b293/"-->
-<!--                           target="_blank"-->
-<!--                           rel="noopener noreferrer">-->
-<!--                            Falar comigo no LinkedIn-->
-<!--                        </a>-->
-
-<!--                        <a class="btn btn-secondary"-->
-<!--                           href="https://github.com/EmanuelBrena"-->
-<!--                           target="_blank"-->
-<!--                           rel="noopener noreferrer">-->
-<!--                            Explorar GitHub-->
-<!--                        </a>-->
-<!--                    </div>-->
-
-<!--                </div>-->
-<!--            </div>-->
-<!--        </section>-->
-
-<!--    </main>-->
-
-<!--    <footer>-->
-<!--        <div class="container footer-inner">-->
-<!--            <div>© <span id="year"></span> Emanuel Brena. Construído com Python.</div>-->
-
-<!--            <div class="footer-links">-->
-<!--                <a href="https://github.com/EmanuelBrena" target="_blank" rel="noopener noreferrer">GitHub</a>-->
-<!--                <a href="https://www.linkedin.com/in/emanuel-brena-17906b293/" target="_blank" rel="noopener noreferrer">LinkedIn</a>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--    </footer>-->
-
-<!--    <script>-->
-<!--        document.getElementById("year").textContent = new Date().getFullYear();-->
-<!--    </script>-->
-
-<!--</body>-->
-<!--</html>-->
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+ <title>Emanuel Brena | Back-End Python</title>
+ <meta name="description" content="Portfólio de Emanuel Brena, desenvolvedor Back-End Python em formação. Projetos com Python, FastAPI, PostgreSQL, SQLAlchemy .">
+
+ <style>
+ :root {
+ --bg: #07111f;
+ --bg-soft: #0b1728;
+ --card: rgba(14, 28, 48, 0.78);
+ --border: rgba(148, 163, 184, 0.16);
+ --text: #f8fafc;
+ --muted: #9fb0c5;
+ --accent: #63e6be;
+ --accent-2: #4dabf7;
+ --white: #ffffff;
+ --danger: #ff6b6b;
+ --shadow: 0 24px 60px rgba(0, 0, 0, 0.28);
+ --radius: 22px;
+ --max: 1120px;
+ }
+
+ * {
+ box-sizing: border-box;
+ margin: 0;
+ padding: 0;
+ }
+
+ html {
+ scroll-behavior: smooth;
+ }
+
+ body {
+ font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+ background:
+ radial-gradient(circle at 12% 10%, rgba(77, 171, 247, 0.12), transparent 28%),
+ radial-gradient(circle at 85% 8%, rgba(99, 230, 190, 0.08), transparent 24%),
+ var(--bg);
+ color: var(--text);
+ line-height: 1.6;
+ }
+
+ a {
+ color: inherit;
+ text-decoration: none;
+ }
+
+ button {
+ font: inherit;
+ }
+
+ .container {
+ width: min(var(--max), calc(100% - 40px));
+ margin: 0 auto;
+ }
+
+ /* NAVBAR */
+ .nav {
+ position: sticky;
+ top: 0;
+ z-index: 50;
+ backdrop-filter: blur(16px);
+ background: rgba(7, 17, 31, 0.74);
+ border-bottom: 1px solid rgba(148, 163, 184, 0.08);
+ }
+
+ .nav-inner {
+ min-height: 76px;
+ display: flex;
+ align-items: center;
+ justify-content: space-between;
+ gap: 24px;
+ }
+
+ .brand {
+ font-weight: 800;
+ letter-spacing: -0.03em;
+ font-size: 1.05rem;
+ }
+
+ .brand span {
+ color: var(--accent);
+ }
+
+ .nav-links {
+ display: flex;
+ gap: 24px;
+ align-items: center;
+ color: var(--muted);
+ font-size: 0.94rem;
+ }
+
+ .nav-links a {
+ transition: color .2s ease;
+ }
+
+ .nav-links a:hover {
+ color: var(--white);
+ }
+
+ /* HERO */
+ .hero {
+ min-height: calc(100vh - 76px);
+ display: grid;
+ place-items: center;
+ padding: 96px 0 72px;
+ }
+
+ .hero-grid {
+ display: grid;
+ grid-template-columns: 1.25fr .75fr;
+ gap: 56px;
+ align-items: center;
+ }
+
+ .eyebrow {
+ display: inline-flex;
+ align-items: center;
+ gap: 9px;
+ padding: 8px 12px;
+ border: 1px solid rgba(99, 230, 190, 0.22);
+ border-radius: 999px;
+ color: var(--accent);
+ background: rgba(99, 230, 190, 0.06);
+ font-size: 0.84rem;
+ margin-bottom: 22px;
+ }
+
+ .eyebrow .dot {
+ width: 8px;
+ height: 8px;
+ border-radius: 50%;
+ background: var(--accent);
+ box-shadow: 0 0 18px rgba(99, 230, 190, 0.8);
+ }
+
+ .hero h1 {
+ max-width: 760px;
+ font-size: clamp(3rem, 7vw, 5.8rem);
+ line-height: .98;
+ letter-spacing: -0.065em;
+ margin-bottom: 24px;
+ }
+
+ .hero h1 .accent {
+ color: var(--accent);
+ }
+
+ .hero p {
+ max-width: 680px;
+ color: var(--muted);
+ font-size: 1.12rem;
+ line-height: 1.8;
+ margin-bottom: 30px;
+ }
+
+ .hero-actions {
+ display: flex;
+ flex-wrap: wrap;
+ gap: 14px;
+ }
+
+ .btn {
+ display: inline-flex;
+ align-items: center;
+ justify-content: center;
+ gap: 10px;
+ padding: 13px 18px;
+ border-radius: 13px;
+ border: 1px solid var(--border);
+ font-weight: 700;
+ transition: transform .2s ease, border-color .2s ease, background .2s ease;
+ }
+
+ .btn:hover {
+ transform: translateY(-2px);
+ }
+
+ .btn-primary {
+ background: var(--accent);
+ color: #062019;
+ border-color: var(--accent);
+ }
+
+ .btn-secondary {
+ background: rgba(255,255,255,.03);
+ color: var(--white);
+ }
+
+ .btn-secondary:hover {
+ border-color: rgba(99,230,190,.35);
+ background: rgba(99,230,190,.05);
+ }
+
+ .hero-panel {
+ position: relative;
+ min-height: 370px;
+ border: 1px solid var(--border);
+ border-radius: 30px;
+ background: linear-gradient(145deg, rgba(18, 37, 62, .9), rgba(8, 20, 35, .75));
+ box-shadow: var(--shadow);
+ overflow: hidden;
+ }
+
+ .hero-panel::before,
+ .hero-panel::after {
+ content: "";
+ position: absolute;
+ border-radius: 50%;
+ filter: blur(8px);
+ }
+
+ .hero-panel::before {
+ width: 220px;
+ height: 220px;
+ background: rgba(77,171,247,.18);
+ top: -70px;
+ right: -60px;
+ }
+
+ .hero-panel::after {
+ width: 180px;
+ height: 180px;
+ background: rgba(99,230,190,.12);
+ bottom: -60px;
+ left: -50px;
+ }
+
+ .terminal {
+ position: absolute;
+ inset: 34px;
+ border: 1px solid rgba(148,163,184,.14);
+ border-radius: 18px;
+ background: rgba(4, 11, 20, .82);
+ padding: 22px;
+ font-family: "Cascadia Code", "SFMono-Regular", Consolas, monospace;
+ color: #cfe6ff;
+ box-shadow: inset 0 1px 0 rgba(255,255,255,.03);
+ }
+
+ .terminal-top {
+ display: flex;
+ gap: 7px;
+ margin-bottom: 20px;
+ }
+
+ .terminal-top span {
+ width: 10px;
+ height: 10px;
+ border-radius: 50%;
+ background: #334155;
+ }
+
+ .terminal-line {
+ margin: 11px 0;
+ font-size: .92rem;
+ }
+
+ .terminal-key {
+ color: #70e1b7;
+ }
+
+ .terminal-fn {
+ color: #74b9ff;
+ }
+
+ .terminal-muted {
+ color: #64748b;
+ }
+
+ /* SECTION */
+ section {
+ padding: 110px 0;
+ }
+
+ .section-head {
+ margin-bottom: 42px;
+ }
+
+ .section-label {
+ color: var(--accent);
+ font-size: .84rem;
+ text-transform: uppercase;
+ letter-spacing: .16em;
+ font-weight: 800;
+ margin-bottom: 10px;
+ }
+
+ .section-head h2 {
+ font-size: clamp(2rem, 4vw, 3.2rem);
+ letter-spacing: -0.05em;
+ margin-bottom: 12px;
+ }
+
+ .section-head p {
+ color: var(--muted);
+ max-width: 720px;
+ }
+
+ /* ABOUT */
+ .about-grid {
+ display: grid;
+ grid-template-columns: 1fr 1fr;
+ gap: 22px;
+ }
+
+ .glass-card {
+ background: var(--card);
+ border: 1px solid var(--border);
+ border-radius: var(--radius);
+ box-shadow: var(--shadow);
+ }
+
+ .about-card {
+ padding: 30px;
+ }
+
+ .about-card h3 {
+ font-size: 1.2rem;
+ margin-bottom: 14px;
+ }
+
+ .about-card p {
+ color: var(--muted);
+ line-height: 1.85;
+ }
+
+ .facts {
+ display: grid;
+ grid-template-columns: 1fr 1fr;
+ gap: 14px;
+ margin-top: 22px;
+ }
+
+ .fact {
+ padding: 18px;
+ border-radius: 16px;
+ background: rgba(255,255,255,.025);
+ border: 1px solid rgba(148,163,184,.09);
+ }
+
+ .fact strong {
+ display: block;
+ font-size: 1.15rem;
+ margin-bottom: 4px;
+ }
+
+ .fact span {
+ color: var(--muted);
+ font-size: .9rem;
+ }
+
+ /* STACK */
+ .stack {
+ display: grid;
+ grid-template-columns: repeat(3, 1fr);
+ gap: 16px;
+ }
+
+ .stack-item {
+ padding: 22px;
+ min-height: 140px;
+ }
+
+ .stack-item h3 {
+ margin-bottom: 8px;
+ font-size: 1rem;
+ }
+
+ .stack-item p {
+ color: var(--muted);
+ font-size: .92rem;
+ }
+
+ .chip-row {
+ display: flex;
+ flex-wrap: wrap;
+ gap: 8px;
+ margin-top: 14px;
+ }
+
+ .chip {
+ font-size: .78rem;
+ padding: 6px 9px;
+ border-radius: 999px;
+ background: rgba(99,230,190,.07);
+ color: #b6f7df;
+ border: 1px solid rgba(99,230,190,.14);
+ }
+
+ /* PROJECTS */
+ .projects {
+ display: grid;
+ grid-template-columns: repeat(3, 1fr);
+ gap: 18px;
+ }
+
+ .project {
+ padding: 26px;
+ display: flex;
+ flex-direction: column;
+ min-height: 390px;
+ }
+
+ .project-top {
+ display: flex;
+ align-items: center;
+ justify-content: space-between;
+ gap: 14px;
+ margin-bottom: 20px;
+ }
+
+ .project-icon {
+ width: 48px;
+ height: 48px;
+ display: grid;
+ place-items: center;
+ border-radius: 14px;
+ background: rgba(99,230,190,.08);
+ border: 1px solid rgba(99,230,190,.14);
+ font-size: 1.35rem;
+ }
+
+ .project-status {
+ font-size: .75rem;
+ font-weight: 800;
+ color: var(--accent);
+ }
+
+ .project h3 {
+ font-size: 1.42rem;
+ margin-bottom: 10px;
+ }
+
+ .project p {
+ color: var(--muted);
+ line-height: 1.75;
+ margin-bottom: 18px;
+ }
+
+ .project-list {
+ list-style: none;
+ display: grid;
+ gap: 8px;
+ color: #c5d2e3;
+ font-size: .9rem;
+ margin-bottom: 22px;
+ }
+
+ .project-list li::before {
+ content: "→";
+ color: var(--accent);
+ margin-right: 8px;
+ }
+
+ .project-footer {
+ margin-top: auto;
+ display: flex;
+ gap: 10px;
+ }
+
+ .project-link {
+ display: inline-flex;
+ align-items: center;
+ justify-content: center;
+ padding: 10px 12px;
+ border-radius: 11px;
+ border: 1px solid var(--border);
+ background: rgba(255,255,255,.025);
+ font-size: .86rem;
+ font-weight: 700;
+ }
+
+ .project-link:hover {
+ border-color: rgba(99,230,190,.3);
+ }
+
+ /* JOURNEY */
+ .journey {
+ display: grid;
+ gap: 16px;
+ max-width: 900px;
+ }
+
+ .journey-item {
+ display: grid;
+ grid-template-columns: 18px 1fr;
+ gap: 20px;
+ align-items: start;
+ }
+
+ .journey-dot {
+ width: 12px;
+ height: 12px;
+ margin-top: 8px;
+ border-radius: 50%;
+ background: var(--accent);
+ box-shadow: 0 0 18px rgba(99,230,190,.5);
+ }
+
+ .journey-card {
+ padding: 22px 24px;
+ }
+
+ .journey-card h3 {
+ margin-bottom: 5px;
+ }
+
+ .journey-card span {
+ color: var(--accent);
+ font-size: .85rem;
+ font-weight: 700;
+ }
+
+ .journey-card p {
+ color: var(--muted);
+ margin-top: 10px;
+ }
+
+ /* CTA */
+ .cta {
+ padding-bottom: 120px;
+ }
+
+ .cta-card {
+ padding: 48px;
+ text-align: center;
+ background:
+ radial-gradient(circle at 15% 30%, rgba(77,171,247,.12), transparent 25%),
+ radial-gradient(circle at 85% 70%, rgba(99,230,190,.1), transparent 26%),
+ rgba(13, 28, 47, .82);
+ }
+
+ .cta-card h2 {
+ font-size: clamp(2rem, 5vw, 3.6rem);
+ letter-spacing: -0.055em;
+ margin-bottom: 12px;
+ }
+
+ .cta-card p {
+ color: var(--muted);
+ max-width: 680px;
+ margin: 0 auto 26px;
+ }
+
+ .cta-actions {
+ display: flex;
+ justify-content: center;
+ flex-wrap: wrap;
+ gap: 12px;
+ }
+
+ /* FOOTER */
+ footer {
+ padding: 26px 0 36px;
+ border-top: 1px solid rgba(148,163,184,.08);
+ color: var(--muted);
+ }
+
+ .footer-inner {
+ display: flex;
+ justify-content: space-between;
+ gap: 20px;
+ align-items: center;
+ }
+
+ .footer-links {
+ display: flex;
+ gap: 14px;
+ }
+
+ .footer-links a:hover {
+ color: var(--white);
+ }
+
+ /* RESPONSIVE */
+ @media (max-width: 900px) {
+ .hero-grid,
+ .about-grid {
+ grid-template-columns: 1fr;
+ }
+
+ .hero {
+ padding-top: 72px;
+ }
+
+ .stack,
+ .projects {
+ grid-template-columns: 1fr 1fr;
+ }
+
+ .hero-panel {
+ min-height: 320px;
+ }
+ }
+
+ @media (max-width: 640px) {
+ .container {
+ width: min(var(--max), calc(100% - 24px));
+ }
+
+ .nav-links {
+ display: none;
+ }
+
+ section {
+ padding: 80px 0;
+ }
+
+ .hero {
+ min-height: auto;
+ padding: 72px 0 40px;
+ }
+
+ .hero h1 {
+ font-size: 3.3rem;
+ }
+
+ .hero p {
+ font-size: 1rem;
+ }
+
+ .stack,
+ .projects,
+ .facts {
+ grid-template-columns: 1fr;
+ }
+
+ .terminal {
+ inset: 20px;
+ padding: 18px;
+ }
+
+ .terminal-line {
+ font-size: .78rem;
+ }
+
+ .cta-card {
+ padding: 32px 20px;
+ }
+
+ .footer-inner {
+ flex-direction: column;
+ align-items: flex-start;
+ }
+ }
+ </style>
+</head>
+
+<body>
+
+ <nav class="nav">
+ <div class="container nav-inner">
+ <a href="#inicio" class="brand">Emanuel<span>.</span></a>
+
+ <div class="nav-links">
+ <a href="#sobre">Sobre</a>
+ <a href="#stack">Stack</a>
+ <a href="#projetos">Projetos</a>
+ <a href="#jornada">Jornada</a>
+ <a href="#contato">Contato</a>
+ </div>
+ </div>
+ </nav>
+
+ <main>
+
+ <!-- HERO -->
+ <section class="hero" id="inicio">
+ <div class="container hero-grid">
+
+ <div>
+ <div class="eyebrow">
+ <span class="dot"></span>
+ Em formação para Back-End Python
+ </div>
+
+ <h1>
+ Transformando ideias em
+ <span class="accent">soluções.</span>
+ </h1>
+
+ <p>
+ Sou Emanuel Brena, estudante de Análise e Desenvolvimento de Sistemas
+ e desenvolvedor Back-End Python em formação. Estou construindo minha
+ base através de projetos práticos com APIs, bancos de dados,
+ e desenvolvimento de aplicações.
+ </p>
+
+ <div class="hero-actions">
+ <a class="btn btn-primary" href="#projetos">
+ Ver projetos
+ </a>
+
+ <a class="btn btn-secondary"
+ href="https://github.com/EmanuelBrena"
+ target="_blank"
+ rel="noopener noreferrer">
+ GitHub ↗
+ </a>
+
+ <a class="btn btn-secondary"
+ href="https://www.linkedin.com/in/emanuel-brena-17906b293/"
+ target="_blank"
+ rel="noopener noreferrer">
+ LinkedIn ↗
+ </a>
+ </div>
+ </div>
+
+ <div class="hero-panel">
+ <div class="terminal">
+ <div class="terminal-top">
+ <span></span>
+ <span></span>
+ <span></span>
+ </div>
+
+ <div class="terminal-line">
+ <span class="terminal-muted">$</span>
+ <span class="terminal-key">python</span>
+ portfolio.py
+ </div>
+
+ <div class="terminal-line">
+ <span class="terminal-fn">stack</span> = [
+ </div>
+
+ <div class="terminal-line">
+ &nbsp;&nbsp;<span class="terminal-key">"Python"</span>,
+ </div>
+
+ <div class="terminal-line">
+ &nbsp;&nbsp;<span class="terminal-key">"FastAPI"</span>,
+ </div>
+
+ <div class="terminal-line">
+ &nbsp;&nbsp;<span class="terminal-key">"PostgreSQL"</span>,
+ </div>
+
+ <div class="terminal-line">
+ &nbsp;&nbsp;<span class="terminal-key">"SQLAlchemy"</span>
+ </div>
+
+ <div class="terminal-line">
+ ]
+ </div>
+
+ </div>
+ </div>
+
+ </div>
+ </section>
+
+ <!-- SOBRE -->
+ <section id="sobre">
+ <div class="container">
+
+ <div class="section-head">
+ <div class="section-label">Sobre mim</div>
+ <h2>Uma transição construída na prática.</h2>
+ <p>
+ Minha trajetória profissional começou no tráfego pago,
+ trabalhando com dados, análise . Hoje uso essa
+ experiência como base para minha transição para desenvolvimento.
+ </p>
+ </div>
+
+ <div class="about-grid">
+
+ <article class="glass-card about-card">
+ <h3>Foco atual</h3>
+ <p>
+ Meu foco está em desenvolvimento Back-End com Python.
+ Estou estudando e praticando construção de APIs REST,
+ bancos de dados relacionais, ORM, autenticação e integração
+ entre diferentes partes de uma aplicação.
+ </p>
+
+ <div class="facts">
+ <div class="fact">
+ <strong>Python</strong>
+ <span>Linguagem principal</span>
+ </div>
+
+ <div class="fact">
+ <strong>Back-End</strong>
+ <span>Área de especialização</span>
+ </div>
+
+ <div class="fact">
+ <strong>ADS</strong>
+ <span>Graduação em andamento</span>
+ </div>
+
+ <div class="fact">
+ <strong>Projetos</strong>
+ <span>Aprendizado na prática</span>
+ </div>
+ </div>
+ </article>
+
+ <article class="glass-card about-card">
+ <h3>Como eu aprendo</h3>
+ <p>
+ Meu foco é construir, testar, errar, corrigir e entender.
+ Cada projeto é usado para transformar teoria em prática,
+ fortalecendo minha base de programação e minha capacidade
+ de resolver problemas no Back-End.
+ </p>
+
+ <div class="chip-row">
+ <span class="chip">APIs REST</span>
+ <span class="chip">CRUD</span>
+ <span class="chip">SQL</span>
+ <span class="chip">ORM</span>
+ <span class="chip">Git / GitHub</span>
+ </div>
+ </article>
+
+ </div>
+ </div>
+ </section>
+
+ <!-- STACK -->
+ <section id="stack">
+ <div class="container">
+
+ <div class="section-head">
+ <div class="section-label">Tecnologias</div>
+ <h2>Stack que estou desenvolvendo.</h2>
+ <p>
+ Tecnologias que já utilizei em projetos ou que fazem parte
+ do meu processo atual de aprendizado.
+ </p>
+ </div>
+
+ <div class="stack">
+
+ <article class="glass-card stack-item">
+ <h3>Python</h3>
+ <p>
+ Base da minha formação, usada em projetos, ,
+ APIs e ferramentas.
+ </p>
+ <div class="chip-row">
+ <span class="chip">Lógica</span>
+ <span class="chip">Funções</span>
+ <span class="chip"></span>
+ </div>
+ </article>
+
+ <article class="glass-card stack-item">
+ <h3>FastAPI</h3>
+ <p>
+ Construção de APIs REST, rotas, validação, documentação
+ e autenticação.
+ </p>
+ <div class="chip-row">
+ <span class="chip">REST</span>
+ <span class="chip">Pydantic</span>
+ <span class="chip">Swagger</span>
+ </div>
+ </article>
+
+ <article class="glass-card stack-item">
+ <h3>PostgreSQL</h3>
+ <p>
+ Banco relacional utilizado nos projetos de Back-End
+ para persistência e consultas.
+ </p>
+ <div class="chip-row">
+ <span class="chip">SQL</span>
+ <span class="chip">CRUD</span>
+ <span class="chip">Relacionamentos</span>
+ </div>
+ </article>
+
+ <article class="glass-card stack-item">
+ <h3>SQLAlchemy</h3>
+ <p>
+ ORM utilizado para conectar a aplicação Python ao banco
+ e trabalhar com Models e Sessions.
+ </p>
+ <div class="chip-row">
+ <span class="chip">ORM</span>
+ <span class="chip">Session</span>
+ <span class="chip">Models</span>
+ </div>
+ </article>
+
+ <article class="glass-card stack-item">
+ <h3>Git / GitHub</h3>
+ <p>
+ Versionamento e publicação dos projetos utilizados
+ durante minha evolução.
+ </p>
+ <div class="chip-row">
+ <span class="chip">Git</span>
+ <span class="chip">GitHub</span>
+ <span class="chip">Projetos</span>
+ </div>
+ </article>
+
+ </div>
+ </div>
+ </section>
+
+ <!-- PROJETOS -->
+ <section id="projetos">
+ <div class="container">
+
+ <div class="section-head">
+ <div class="section-label">Projetos</div>
+ <h2>Projetos que mostram minha evolução.</h2>
+ <p>
+ Cada projeto representa uma etapa diferente da minha jornada,
+ desde ferramentas em Python até APIs completas com banco de dados.
+ </p>
+ </div>
+
+ <div class="projects">
+
+ <article class="glass-card project">
+ <div class="project-top">
+ <div class="project-icon">⚡</div>
+ <div class="project-status">BACK-END</div>
+ </div>
+
+ <h3>TarefasAPI</h3>
+
+ <p>
+ API REST para gerenciamento de tarefas, construída para
+ praticar Back-End, CRUD, banco de dados e integração entre API
+ e Front-End.
+ </p>
+
+ <ul class="project-list">
+ <li>Python + FastAPI</li>
+ <li>PostgreSQL + SQLAlchemy</li>
+ <li>Pydantic e HTTPException</li>
+ <li>CRUD completo de tarefas</li>
+ <li>Front-End integrado à API</li>
+ </ul>
+
+ <div class="chip-row">
+ <span class="chip">Python</span>
+ <span class="chip">FastAPI</span>
+ <span class="chip">PostgreSQL</span>
+ <span class="chip">SQLAlchemy</span>
+ </div>
+
+ <div class="project-footer">
+ <a class="project-link"
+ href="https://github.com/EmanuelBrena/TarefasAPI01"
+ target="_blank"
+ rel="noopener noreferrer">
+ Ver no GitHub ↗
+ </a>
+ </div>
+ </article>
+
+ <article class="glass-card project">
+ <div class="project-top">
+ <div class="project-icon">🔎</div>
+ <div class="project-status"></div>
+ </div>
+
+ <h3>VagasPython</h3>
+
+ <p>
+ Bot de busca automática de vagas focado em oportunidades
+ de Python Back-End, criado para facilitar meu próprio
+ processo de busca de oportunidades.
+ </p>
+
+ <ul class="project-list">
+ <li>Busca de oportunidades</li>
+ <li>Filtros voltados para Back-End Python</li>
+ <li>Integração com Telegram</li>
+ <li> do processo de busca</li>
+ <li>Projeto publicado no GitHub</li>
+ </ul>
+
+ <div class="chip-row">
+ <span class="chip">Python</span>
+ <span class="chip"></span>
+ <span class="chip">GitHub</span>
+ </div>
+
+ <div class="project-footer">
+ <a class="project-link"
+ href="https://github.com/EmanuelBrena/VagasPython"
+ target="_blank"
+ rel="noopener noreferrer">
+ Ver no GitHub ↗
+ </a>
+ </div>
+ </article>
+
+ <article class="glass-card project">
+ <div class="project-top">
+ <div class="project-icon">📊</div>
+ <div class="project-status">PYTHON</div>
+ </div>
+
+ <h3>AdVisionMetrics</h3>
+
+ <p>
+ Ferramenta em Python criada para auxiliar gestores de
+ tráfego na análise de métricas de campanhas de Meta Ads.
+ </p>
+
+ <ul class="project-list">
+ <li>Cálculo de CPL, CPM e CPC</li>
+ <li>Cálculo de CTR e frequência</li>
+ <li>Conversão de Landing Page</li>
+ <li>Diagnóstico automático simples</li>
+ <li>Interface com CustomTkinter</li>
+ </ul>
+
+ <div class="chip-row">
+ <span class="chip">Python</span>
+ <span class="chip">CustomTkinter</span>
+ <span class="chip">Métricas</span>
+ </div>
+
+ <div class="project-footer">
+ <a class="project-link"
+ href="https://github.com/EmanuelBrena/AdVisionMetrics"
+ target="_blank"
+ rel="noopener noreferrer">
+ Ver no GitHub ↗
+ </a>
+ </div>
+ </article>
+
+ </div>
+ </div>
+ </section>
+
+ <!-- JORNADA -->
+ <section id="jornada">
+ <div class="container">
+
+ <div class="section-head">
+ <div class="section-label">Jornada</div>
+ <h2>Onde estou e para onde estou indo.</h2>
+ <p>
+ Minha evolução é construída por etapas, sempre colocando o
+ conhecimento em prática antes de seguir para o próximo desafio.
+ </p>
+ </div>
+
+ <div class="journey">
+
+ <div class="journey-item">
+ <span class="journey-dot"></span>
+ <article class="glass-card journey-card">
+ <span>BASE</span>
+ <h3>Python e lógica</h3>
+ <p>
+ Construção da base de programação, resolução de problemas,
+ funções, estruturas de dados e manipulação de informações.
+ </p>
+ </article>
+ </div>
+
+ <div class="journey-item">
+ <span class="journey-dot"></span>
+ <article class="glass-card journey-card">
+ <span>DADOS</span>
+ <h3>SQL e PostgreSQL</h3>
+ <p>
+ Criação, consulta, alteração e exclusão de dados,
+ relacionamentos e integração com aplicações Python.
+ </p>
+ </article>
+ </div>
+
+ <div class="journey-item">
+ <span class="journey-dot"></span>
+ <article class="glass-card journey-card">
+ <span>BACK-END</span>
+ <h3>FastAPI e SQLAlchemy</h3>
+ <p>
+ Desenvolvimento de APIs REST, CRUD, Models, Sessions,
+ ORM e comunicação com banco de dados.
+ </p>
+ </article>
+ </div>
+
+ <div class="journey-item">
+ <span class="journey-dot"></span>
+ <article class="glass-card journey-card">
+ <span>ATUAL</span>
+ <h3>Autenticação</h3>
+ <p>
+ Estudo de autenticação, hash de senhas, JWT, Bearer Token
+ e proteção de rotas para fortalecer a base de Back-End.
+ </p>
+ </article>
+ </div>
+
+ </div>
+
+ </div>
+ </section>
+
+ <!-- CTA -->
+ <section class="cta" id="contato">
+ <div class="container">
+ <div class="glass-card cta-card">
+
+ <h2>Vamos conversar?</h2>
+
+ <p>
+ Estou em busca da minha primeira oportunidade na área de
+ desenvolvimento e aberto a conversas sobre estágio,
+ oportunidades júnior e projetos.
+ </p>
+
+ <div class="cta-actions">
+ <a class="btn btn-primary"
+ href="https://www.linkedin.com/in/emanuel-brena-17906b293/"
+ target="_blank"
+ rel="noopener noreferrer">
+ Falar comigo no LinkedIn
+ </a>
+
+ <a class="btn btn-secondary"
+ href="https://github.com/EmanuelBrena"
+ target="_blank"
+ rel="noopener noreferrer">
+ Explorar GitHub
+ </a>
+ </div>
+
+ </div>
+ </div>
+ </section>
+
+ </main>
+
+ <footer>
+ <div class="container footer-inner">
+ <div>© <span id="year"></span> Emanuel Brena. Construído com Python.</div>
+
+ <div class="footer-links">
+ <a href="https://github.com/EmanuelBrena" target="_blank" rel="noopener noreferrer">GitHub</a>
+ <a href="https://www.linkedin.com/in/emanuel-brena-17906b293/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+ </div>
+ </div>
+ </footer>
+
+ <script>
+ document.getElementById("year").textContent = new Date().getFullYear();
+ </script>
+
+</body>
+</html>
