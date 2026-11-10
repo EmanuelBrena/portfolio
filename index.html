@@ -1,14 +1,13 @@
 
 <!DOCTYPE html>
+
 <html lang="pt-BR">
 <head>
- <meta charset="UTF-8">
- <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
- <title>Emanuel Brena | Back-End Python</title>
- <meta name="description" content="Portfólio de Emanuel Brena, desenvolvedor Back-End Python em formação. Projetos com Python, FastAPI, PostgreSQL, SQLAlchemy .">
-
- <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Emanuel Brena | Back-End Python</title>
+<meta content="Portfólio de Emanuel Brena, desenvolvedor Back-End Python em formação. Projetos com Python, FastAPI, PostgreSQL, SQLAlchemy ." name="description"/>
+<style>
  :root {
  --bg: #07111f;
  --bg-soft: #0b1728;
@@ -460,6 +459,7 @@
 
  .project-footer {
  margin-top: auto;
+ padding-top: 24px;
  display: flex;
  gap: 10px;
  }
@@ -649,518 +649,418 @@
  align-items: flex-start;
  }
  }
- </style>
+ 
+/* Capas reais dos projetos e botões com espaçamento */
+.project-cover { display:block; width:100%; height:190px; object-fit:contain; background:#101b2a; border-radius:14px; border:1px solid rgba(148,163,184,.16); margin-bottom:22px; }
+.project .chip-row { margin-bottom:24px; }
+.project-footer { flex-wrap:wrap; gap:12px; }
+@media(max-width:640px){ .project-cover {height:170px;} }
+</style>
 </head>
-
 <body>
-
- <nav class="nav">
- <div class="container nav-inner">
- <a href="#inicio" class="brand">Emanuel<span>.</span></a>
-
- <div class="nav-links">
- <a href="#sobre">Sobre</a>
- <a href="#stack">Stack</a>
- <a href="#projetos">Projetos</a>
- <a href="#jornada">Jornada</a>
- <a href="#contato">Contato</a>
- </div>
- </div>
- </nav>
-
- <main>
-
- <!-- HERO -->
- <section class="hero" id="inicio">
- <div class="container hero-grid">
-
- <div>
- <div class="eyebrow">
- <span class="dot"></span>
+<nav class="nav">
+<div class="container nav-inner">
+<a class="brand" href="#inicio">Emanuel<span>.</span></a>
+<div class="nav-links">
+<a href="#sobre">Sobre</a>
+<a href="#stack">Stack</a>
+<a href="#projetos">Projetos</a>
+<a href="#jornada">Jornada</a>
+<a href="#contato">Contato</a>
+</div>
+</div>
+</nav>
+<main>
+<!-- HERO -->
+<section class="hero" id="inicio">
+<div class="container hero-grid">
+<div>
+<div class="eyebrow">
+<span class="dot"></span>
  Em formação para Back-End Python
  </div>
-
- <h1>
+<h1>
  Transformando ideias em
  <span class="accent">soluções.</span>
- </h1>
-
- <p>
+</h1>
+<p>
  Sou Emanuel Brena, estudante de Análise e Desenvolvimento de Sistemas
  e desenvolvedor Back-End Python em formação. Estou construindo minha
  base através de projetos práticos com APIs, bancos de dados,
  e desenvolvimento de aplicações.
  </p>
-
- <div class="hero-actions">
- <a class="btn btn-primary" href="#projetos">
+<div class="hero-actions">
+<a class="btn btn-primary" href="#projetos">
  Ver projetos
  </a>
-
- <a class="btn btn-secondary"
- href="https://github.com/EmanuelBrena"
- target="_blank"
- rel="noopener noreferrer">
+<a class="btn btn-secondary" href="https://github.com/EmanuelBrena" rel="noopener noreferrer" target="_blank">
  GitHub ↗
  </a>
-
- <a class="btn btn-secondary"
- href="https://www.linkedin.com/in/emanuel-brena-17906b293/"
- target="_blank"
- rel="noopener noreferrer">
+<a class="btn btn-secondary" href="https://www.linkedin.com/in/emanuel-brena-17906b293/" rel="noopener noreferrer" target="_blank">
  LinkedIn ↗
  </a>
- </div>
- </div>
-
- <div class="hero-panel">
- <div class="terminal">
- <div class="terminal-top">
- <span></span>
- <span></span>
- <span></span>
- </div>
-
- <div class="terminal-line">
- <span class="terminal-muted">$</span>
- <span class="terminal-key">python</span>
+</div>
+</div>
+<div class="hero-panel">
+<div class="terminal">
+<div class="terminal-top">
+<span></span>
+<span></span>
+<span></span>
+</div>
+<div class="terminal-line">
+<span class="terminal-muted">$</span>
+<span class="terminal-key">python</span>
  portfolio.py
  </div>
-
- <div class="terminal-line">
- <span class="terminal-fn">stack</span> = [
+<div class="terminal-line">
+<span class="terminal-fn">stack</span> = [
  </div>
-
- <div class="terminal-line">
- &nbsp;&nbsp;<span class="terminal-key">"Python"</span>,
+<div class="terminal-line">
+   <span class="terminal-key">"Python"</span>,
  </div>
-
- <div class="terminal-line">
- &nbsp;&nbsp;<span class="terminal-key">"FastAPI"</span>,
+<div class="terminal-line">
+   <span class="terminal-key">"FastAPI"</span>,
  </div>
-
- <div class="terminal-line">
- &nbsp;&nbsp;<span class="terminal-key">"PostgreSQL"</span>,
+<div class="terminal-line">
+   <span class="terminal-key">"PostgreSQL"</span>,
  </div>
-
- <div class="terminal-line">
- &nbsp;&nbsp;<span class="terminal-key">"SQLAlchemy"</span>
- </div>
-
- <div class="terminal-line">
+<div class="terminal-line">
+   <span class="terminal-key">"SQLAlchemy"</span>
+</div>
+<div class="terminal-line">
  ]
  </div>
-
- </div>
- </div>
-
- </div>
- </section>
-
- <!-- SOBRE -->
- <section id="sobre">
- <div class="container">
-
- <div class="section-head">
- <div class="section-label">Sobre mim</div>
- <h2>Uma transição construída na prática.</h2>
- <p>
+</div>
+</div>
+</div>
+</section>
+<!-- SOBRE -->
+<section id="sobre">
+<div class="container">
+<div class="section-head">
+<div class="section-label">Sobre mim</div>
+<h2>Uma transição construída na prática.</h2>
+<p>
  Minha trajetória profissional começou no tráfego pago,
  trabalhando com dados, análise . Hoje uso essa
  experiência como base para minha transição para desenvolvimento.
  </p>
- </div>
-
- <div class="about-grid">
-
- <article class="glass-card about-card">
- <h3>Foco atual</h3>
- <p>
+</div>
+<div class="about-grid">
+<article class="glass-card about-card">
+<h3>Foco atual</h3>
+<p>
  Meu foco está em desenvolvimento Back-End com Python.
  Estou estudando e praticando construção de APIs REST,
  bancos de dados relacionais, ORM, autenticação e integração
  entre diferentes partes de uma aplicação.
  </p>
-
- <div class="facts">
- <div class="fact">
- <strong>Python</strong>
- <span>Linguagem principal</span>
- </div>
-
- <div class="fact">
- <strong>Back-End</strong>
- <span>Área de especialização</span>
- </div>
-
- <div class="fact">
- <strong>ADS</strong>
- <span>Graduação em andamento</span>
- </div>
-
- <div class="fact">
- <strong>Projetos</strong>
- <span>Aprendizado na prática</span>
- </div>
- </div>
- </article>
-
- <article class="glass-card about-card">
- <h3>Como eu aprendo</h3>
- <p>
+<div class="facts">
+<div class="fact">
+<strong>Python</strong>
+<span>Linguagem principal</span>
+</div>
+<div class="fact">
+<strong>Back-End</strong>
+<span>Área de especialização</span>
+</div>
+<div class="fact">
+<strong>ADS</strong>
+<span>Graduação em andamento</span>
+</div>
+<div class="fact">
+<strong>Projetos</strong>
+<span>Aprendizado na prática</span>
+</div>
+</div>
+</article>
+<article class="glass-card about-card">
+<h3>Como eu aprendo</h3>
+<p>
  Meu foco é construir, testar, errar, corrigir e entender.
  Cada projeto é usado para transformar teoria em prática,
  fortalecendo minha base de programação e minha capacidade
  de resolver problemas no Back-End.
  </p>
-
- <div class="chip-row">
- <span class="chip">APIs REST</span>
- <span class="chip">CRUD</span>
- <span class="chip">SQL</span>
- <span class="chip">ORM</span>
- <span class="chip">Git / GitHub</span>
- </div>
- </article>
-
- </div>
- </div>
- </section>
-
- <!-- STACK -->
- <section id="stack">
- <div class="container">
-
- <div class="section-head">
- <div class="section-label">Tecnologias</div>
- <h2>Stack que estou desenvolvendo.</h2>
- <p>
+<div class="chip-row">
+<span class="chip">APIs REST</span>
+<span class="chip">CRUD</span>
+<span class="chip">SQL</span>
+<span class="chip">ORM</span>
+<span class="chip">Git / GitHub</span>
+</div>
+</article>
+</div>
+</div>
+</section>
+<!-- STACK -->
+<section id="stack">
+<div class="container">
+<div class="section-head">
+<div class="section-label">Tecnologias</div>
+<h2>Stack que estou desenvolvendo.</h2>
+<p>
  Tecnologias que já utilizei em projetos ou que fazem parte
  do meu processo atual de aprendizado.
  </p>
- </div>
-
- <div class="stack">
-
- <article class="glass-card stack-item">
- <h3>Python</h3>
- <p>
+</div>
+<div class="stack">
+<article class="glass-card stack-item">
+<h3>Python</h3>
+<p>
  Base da minha formação, usada em projetos, ,
  APIs e ferramentas.
  </p>
- <div class="chip-row">
- <span class="chip">Lógica</span>
- <span class="chip">Funções</span>
- <span class="chip"></span>
- </div>
- </article>
-
- <article class="glass-card stack-item">
- <h3>FastAPI</h3>
- <p>
+<div class="chip-row">
+<span class="chip">Lógica</span>
+<span class="chip">Funções</span>
+<span class="chip"></span>
+</div>
+</article>
+<article class="glass-card stack-item">
+<h3>FastAPI</h3>
+<p>
  Construção de APIs REST, rotas, validação, documentação
  e autenticação.
  </p>
- <div class="chip-row">
- <span class="chip">REST</span>
- <span class="chip">Pydantic</span>
- <span class="chip">Swagger</span>
- </div>
- </article>
-
- <article class="glass-card stack-item">
- <h3>PostgreSQL</h3>
- <p>
+<div class="chip-row">
+<span class="chip">REST</span>
+<span class="chip">Pydantic</span>
+<span class="chip">Swagger</span>
+</div>
+</article>
+<article class="glass-card stack-item">
+<h3>PostgreSQL</h3>
+<p>
  Banco relacional utilizado nos projetos de Back-End
  para persistência e consultas.
  </p>
- <div class="chip-row">
- <span class="chip">SQL</span>
- <span class="chip">CRUD</span>
- <span class="chip">Relacionamentos</span>
- </div>
- </article>
-
- <article class="glass-card stack-item">
- <h3>SQLAlchemy</h3>
- <p>
+<div class="chip-row">
+<span class="chip">SQL</span>
+<span class="chip">CRUD</span>
+<span class="chip">Relacionamentos</span>
+</div>
+</article>
+<article class="glass-card stack-item">
+<h3>SQLAlchemy</h3>
+<p>
  ORM utilizado para conectar a aplicação Python ao banco
  e trabalhar com Models e Sessions.
  </p>
- <div class="chip-row">
- <span class="chip">ORM</span>
- <span class="chip">Session</span>
- <span class="chip">Models</span>
- </div>
- </article>
-
- <article class="glass-card stack-item">
- <h3>Git / GitHub</h3>
- <p>
+<div class="chip-row">
+<span class="chip">ORM</span>
+<span class="chip">Session</span>
+<span class="chip">Models</span>
+</div>
+</article>
+<article class="glass-card stack-item">
+<h3>Git / GitHub</h3>
+<p>
  Versionamento e publicação dos projetos utilizados
  durante minha evolução.
  </p>
- <div class="chip-row">
- <span class="chip">Git</span>
- <span class="chip">GitHub</span>
- <span class="chip">Projetos</span>
- </div>
- </article>
-
- </div>
- </div>
- </section>
-
- <!-- PROJETOS -->
- <section id="projetos">
- <div class="container">
-
- <div class="section-head">
- <div class="section-label">Projetos</div>
- <h2>Projetos que mostram minha evolução.</h2>
- <p>
+<div class="chip-row">
+<span class="chip">Git</span>
+<span class="chip">GitHub</span>
+<span class="chip">Projetos</span>
+</div>
+</article>
+</div>
+</div>
+</section>
+<!-- PROJETOS -->
+<section id="projetos">
+<div class="container">
+<div class="section-head">
+<div class="section-label">Projetos</div>
+<h2>Projetos que mostram minha evolução.</h2>
+<p>
  Cada projeto representa uma etapa diferente da minha jornada,
  desde ferramentas em Python até APIs completas com banco de dados.
  </p>
- </div>
-
- <div class="projects">
-
- <article class="glass-card project">
- <div class="project-top">
- <div class="project-icon">⚡</div>
- <div class="project-status">BACK-END</div>
- </div>
-
- <h3>TarefasAPI</h3>
-
- <p>
+</div>
+<div class="projects">
+<article class="glass-card project"><img alt="Captura de tela real do projeto TarefasAPI" class="project-cover" src="imagens/tarefasapi.png"/>
+<div class="project-top">
+<div class="project-icon">⚡</div>
+<div class="project-status">BACK-END</div>
+</div>
+<h3>TarefasAPI</h3>
+<p>
  API REST para gerenciamento de tarefas, construída para
  praticar Back-End, CRUD, banco de dados e integração entre API
  e Front-End.
  </p>
-
- <ul class="project-list">
- <li>Python + FastAPI</li>
- <li>PostgreSQL + SQLAlchemy</li>
- <li>Pydantic e HTTPException</li>
- <li>CRUD completo de tarefas</li>
- <li>Front-End integrado à API</li>
- </ul>
-
- <div class="chip-row">
- <span class="chip">Python</span>
- <span class="chip">FastAPI</span>
- <span class="chip">PostgreSQL</span>
- <span class="chip">SQLAlchemy</span>
- </div>
-
- <div class="project-footer">
- <a class="project-link"
- href="https://github.com/EmanuelBrena/TarefasAPI01"
- target="_blank"
- rel="noopener noreferrer">
+<ul class="project-list">
+<li>Python + FastAPI</li>
+<li>PostgreSQL + SQLAlchemy</li>
+<li>Pydantic e HTTPException</li>
+<li>CRUD completo de tarefas</li>
+<li>Front-End integrado à API</li>
+</ul>
+<div class="chip-row">
+<span class="chip">Python</span>
+<span class="chip">FastAPI</span>
+<span class="chip">PostgreSQL</span>
+<span class="chip">SQLAlchemy</span>
+</div>
+<div class="project-footer">
+<a class="project-link" href="https://github.com/EmanuelBrena/TarefasAPI01" rel="noopener noreferrer" target="_blank">
  Ver no GitHub ↗
  </a>
- </div>
- </article>
+<a class="project-link" href="https://www.linkedin.com/feed/update/urn:li:activity:7507788872458739712/" rel="noopener noreferrer" target="_blank">▶ Ver demonstração</a></div>
+</article>
+<article class="glass-card project"><img alt="Captura de tela real do projeto TaskFlow" class="project-cover" src="imagens/taskflow.png"/>
+<div class="project-top">
+<div class="project-icon">🚀</div>
+<div class="project-status">BACK-END / FULL STACK</div>
+</div>
+<h3>TaskFlow</h3>
+<p>Aplicação web de gerenciamento de tarefas com autenticação de usuários, API REST e interface responsiva.</p>
+<ul class="project-list">
+<li>Cadastro e login com autenticação JWT</li>
+<li>CRUD de tarefas por usuário</li>
+<li>PostgreSQL e SQLAlchemy</li>
+<li>Pesquisa, filtros e acompanhamento de progresso</li>
+<li>Configuração com Docker</li>
+</ul>
+<div class="chip-row">
+<span class="chip">Python</span>
+<span class="chip">FastAPI</span>
+<span class="chip">PostgreSQL</span>
+<span class="chip">SQLAlchemy</span>
+<span class="chip">JWT</span>
+<span class="chip">Docker</span>
+</div>
+<div class="project-footer">
+<a class="project-link" href="https://github.com/EmanuelBrena/TaskFlow" rel="noopener noreferrer" target="_blank">Ver no GitHub ↗</a>
+<a class="project-link" href="https://www.linkedin.com/feed/update/urn:li:activity:7525613869705302016/" rel="noopener noreferrer" target="_blank">▶ Ver demonstração</a></div>
+</article>
 
- <article class="glass-card project">
- <div class="project-top">
- <div class="project-icon">🔎</div>
- <div class="project-status"></div>
- </div>
-
- <h3>VagasPython</h3>
-
- <p>
- Bot de busca automática de vagas focado em oportunidades
- de Python Back-End, criado para facilitar meu próprio
- processo de busca de oportunidades.
- </p>
-
- <ul class="project-list">
- <li>Busca de oportunidades</li>
- <li>Filtros voltados para Back-End Python</li>
- <li>Integração com Telegram</li>
- <li> do processo de busca</li>
- <li>Projeto publicado no GitHub</li>
- </ul>
-
- <div class="chip-row">
- <span class="chip">Python</span>
- <span class="chip"></span>
- <span class="chip">GitHub</span>
- </div>
-
- <div class="project-footer">
- <a class="project-link"
- href="https://github.com/EmanuelBrena/VagasPython"
- target="_blank"
- rel="noopener noreferrer">
- Ver no GitHub ↗
- </a>
- </div>
- </article>
-
- <article class="glass-card project">
- <div class="project-top">
- <div class="project-icon">📊</div>
- <div class="project-status">PYTHON</div>
- </div>
-
- <h3>AdVisionMetrics</h3>
-
- <p>
+<article class="glass-card project"><img alt="Captura de tela real do projeto AdVisionMetrics" class="project-cover" src="imagens/advisionmetrics.png"/>
+<div class="project-top">
+<div class="project-icon">📊</div>
+<div class="project-status">PYTHON</div>
+</div>
+<h3>AdVisionMetrics</h3>
+<p>
  Ferramenta em Python criada para auxiliar gestores de
  tráfego na análise de métricas de campanhas de Meta Ads.
  </p>
-
- <ul class="project-list">
- <li>Cálculo de CPL, CPM e CPC</li>
- <li>Cálculo de CTR e frequência</li>
- <li>Conversão de Landing Page</li>
- <li>Diagnóstico automático simples</li>
- <li>Interface com CustomTkinter</li>
- </ul>
-
- <div class="chip-row">
- <span class="chip">Python</span>
- <span class="chip">CustomTkinter</span>
- <span class="chip">Métricas</span>
- </div>
-
- <div class="project-footer">
- <a class="project-link"
- href="https://github.com/EmanuelBrena/AdVisionMetrics"
- target="_blank"
- rel="noopener noreferrer">
+<ul class="project-list">
+<li>Cálculo de CPL, CPM e CPC</li>
+<li>Cálculo de CTR e frequência</li>
+<li>Conversão de Landing Page</li>
+<li>Diagnóstico automático simples</li>
+<li>Interface com CustomTkinter</li>
+</ul>
+<div class="chip-row">
+<span class="chip">Python</span>
+<span class="chip">CustomTkinter</span>
+<span class="chip">Métricas</span>
+</div>
+<div class="project-footer">
+<a class="project-link" href="https://github.com/EmanuelBrena/AdVisionMetrics" rel="noopener noreferrer" target="_blank">
  Ver no GitHub ↗
  </a>
- </div>
- </article>
-
- </div>
- </div>
- </section>
-
- <!-- JORNADA -->
- <section id="jornada">
- <div class="container">
-
- <div class="section-head">
- <div class="section-label">Jornada</div>
- <h2>Onde estou e para onde estou indo.</h2>
- <p>
+</div>
+</article>
+</div>
+</div>
+</section>
+<!-- JORNADA -->
+<section id="jornada">
+<div class="container">
+<div class="section-head">
+<div class="section-label">Jornada</div>
+<h2>Onde estou e para onde estou indo.</h2>
+<p>
  Minha evolução é construída por etapas, sempre colocando o
  conhecimento em prática antes de seguir para o próximo desafio.
  </p>
- </div>
-
- <div class="journey">
-
- <div class="journey-item">
- <span class="journey-dot"></span>
- <article class="glass-card journey-card">
- <span>BASE</span>
- <h3>Python e lógica</h3>
- <p>
+</div>
+<div class="journey">
+<div class="journey-item">
+<span class="journey-dot"></span>
+<article class="glass-card journey-card">
+<span>BASE</span>
+<h3>Python e lógica</h3>
+<p>
  Construção da base de programação, resolução de problemas,
  funções, estruturas de dados e manipulação de informações.
  </p>
- </article>
- </div>
-
- <div class="journey-item">
- <span class="journey-dot"></span>
- <article class="glass-card journey-card">
- <span>DADOS</span>
- <h3>SQL e PostgreSQL</h3>
- <p>
+</article>
+</div>
+<div class="journey-item">
+<span class="journey-dot"></span>
+<article class="glass-card journey-card">
+<span>DADOS</span>
+<h3>SQL e PostgreSQL</h3>
+<p>
  Criação, consulta, alteração e exclusão de dados,
  relacionamentos e integração com aplicações Python.
  </p>
- </article>
- </div>
-
- <div class="journey-item">
- <span class="journey-dot"></span>
- <article class="glass-card journey-card">
- <span>BACK-END</span>
- <h3>FastAPI e SQLAlchemy</h3>
- <p>
+</article>
+</div>
+<div class="journey-item">
+<span class="journey-dot"></span>
+<article class="glass-card journey-card">
+<span>BACK-END</span>
+<h3>FastAPI e SQLAlchemy</h3>
+<p>
  Desenvolvimento de APIs REST, CRUD, Models, Sessions,
  ORM e comunicação com banco de dados.
  </p>
- </article>
- </div>
-
- <div class="journey-item">
- <span class="journey-dot"></span>
- <article class="glass-card journey-card">
- <span>ATUAL</span>
- <h3>Autenticação</h3>
- <p>
+</article>
+</div>
+<div class="journey-item">
+<span class="journey-dot"></span>
+<article class="glass-card journey-card">
+<span>ATUAL</span>
+<h3>Autenticação</h3>
+<p>
  Estudo de autenticação, hash de senhas, JWT, Bearer Token
  e proteção de rotas para fortalecer a base de Back-End.
  </p>
- </article>
- </div>
-
- </div>
-
- </div>
- </section>
-
- <!-- CTA -->
- <section class="cta" id="contato">
- <div class="container">
- <div class="glass-card cta-card">
-
- <h2>Vamos conversar?</h2>
-
- <p>
+</article>
+</div>
+</div>
+</div>
+</section>
+<!-- CTA -->
+<section class="cta" id="contato">
+<div class="container">
+<div class="glass-card cta-card">
+<h2>Vamos conversar?</h2>
+<p>
  Estou em busca da minha primeira oportunidade na área de
  desenvolvimento e aberto a conversas sobre estágio,
  oportunidades júnior e projetos.
  </p>
-
- <div class="cta-actions">
- <a class="btn btn-primary"
- href="https://www.linkedin.com/in/emanuel-brena-17906b293/"
- target="_blank"
- rel="noopener noreferrer">
+<div class="cta-actions">
+<a class="btn btn-primary" href="https://www.linkedin.com/in/emanuel-brena-17906b293/" rel="noopener noreferrer" target="_blank">
  Falar comigo no LinkedIn
  </a>
-
- <a class="btn btn-secondary"
- href="https://github.com/EmanuelBrena"
- target="_blank"
- rel="noopener noreferrer">
+<a class="btn btn-secondary" href="https://github.com/EmanuelBrena" rel="noopener noreferrer" target="_blank">
  Explorar GitHub
  </a>
- </div>
-
- </div>
- </div>
- </section>
-
- </main>
-
- <footer>
- <div class="container footer-inner">
- <div>© <span id="year"></span> Emanuel Brena. Construído com Python.</div>
-
- <div class="footer-links">
- <a href="https://github.com/EmanuelBrena" target="_blank" rel="noopener noreferrer">GitHub</a>
- <a href="https://www.linkedin.com/in/emanuel-brena-17906b293/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
- </div>
- </div>
- </footer>
-
- <script>
+</div>
+</div>
+</div>
+</section>
+</main>
+<footer>
+<div class="container footer-inner">
+<div>© <span id="year"></span> Emanuel Brena. Construído com Python.</div>
+<div class="footer-links">
+<a href="https://github.com/EmanuelBrena" rel="noopener noreferrer" target="_blank">GitHub</a>
+<a href="https://www.linkedin.com/in/emanuel-brena-17906b293/" rel="noopener noreferrer" target="_blank">LinkedIn</a>
+</div>
+</div>
+</footer>
+<script>
  document.getElementById("year").textContent = new Date().getFullYear();
  </script>
-
 </body>
 </html>
